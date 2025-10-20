@@ -1,6 +1,12 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is configured for the betting-soft test task. Key scripts:
+
+- yarn start: start dev server
+- yarn lint: run ESLint
+- yarn format: run Prettier
+
+Pre-commit runs lint-staged.
 
 ## Available Scripts
 

@@ -1,0 +1,232 @@
+@use '../../../shared/styles/variables' as *;
+
+.root {
+  padding-top: $space-6;
+}
+
+// Header layout matching spec
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px; // distance between Game Type and Search blocks
+  margin-bottom: 20px; // header bottom offset
+}
+
+.label {
+  color: #fff;
+  font-family:
+    Roboto,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: capitalize;
+}
+
+// 1) Game Type block
+.gameTypePanel {
+  display: flex;
+  padding: 20px 90px 20px 20px;
+  align-items: center; // align label and select horizontally by center
+  gap: 30px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #1f1f1f 0%, #1f1f1f 100%), #1c1c1c;
+  flex: 1 0 0;
+  width: 71.35%; // 1370 / 1920 * 100
+}
+
+.selectWrap {
+  display: flex;
+  width: 140px;
+  height: 40px;
+  padding: 10px 10px 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 0; // no rounding
+  background: #1f1f1f;
+  border: 1px solid #ba8e47;
+}
+
+.selectNative {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font: inherit;
+  width: 100%;
+  height: 100%;
+  padding-right: 40px; // space for icon
+}
+
+.selectIcon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+// 2) Search block
+.searchPanel {
+  display: flex;
+  flex: 0 0 auto; // size by content, not fixed width
+  padding: 9px 20px;
+  align-items: flex-start;
+  gap: 30px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #1f1f1f 0%, #1f1f1f 100%), #1c1c1c;
+}
+
+.searchCol {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.searchRow {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 8px;
+  flex-wrap: nowrap;
+}
+
+.searchInputWrap {
+  display: flex;
+  height: 40px;
+  padding: 10px 20px 10px 15px;
+  align-items: center;
+  gap: 15px;
+  flex: 1 1 260px; // allow intrinsic width while keeping room for button
+  min-width: 260px;
+  border: 1px solid #ba8e47;
+  border-radius: 0; // no rounding
+}
+
+.searchIcon {
+  display: inline-flex;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family:
+    Roboto,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1 1 auto;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+  }
+}
+
+.searchButton {
+  display: flex;
+  height: 40px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  background: #f0da7d;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 0; // same height/line as input
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+// Provider row below header
+.providerRow {
+  display: flex;
+  align-items: center; // vertically centered
+  height: 40px;
+  gap: 10px; // space between icon and text
+  margin-bottom: 20px; // bottom offset
+}
+
+.providerIconBox {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 0 4.367px 0 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.providerTitle {
+  color: #fff;
+  font-family:
+    Roboto,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.grid {
+  display: grid;
+  gap: $space-4;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (min-width: $bp-xl) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.loader {
+  text-align: center;
+  padding: $space-6;
+  color: $color-text-muted;
+}
+
+.search,
+.select {
+  background: $color-bg-elevated;
+  color: $color-text;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  padding: $space-3 $space-4;
+}
+
+.searchButton {
+  background: $color-accent;
+  color: #1a1a1a;
+  border: none;
+  padding: $space-3 $space-5;
+  font-weight: 600;
+  cursor: pointer;
+}
