@@ -1,28 +1,35 @@
 @use '../../../../shared/styles/variables' as *;
 
 .card {
-  background: $color-bg-elevated;
-  border: 1px solid $color-border;
-  border-radius: 10px;
-  overflow: hidden;
+  // no outer shell, no border
 }
 
 .imageWrapper {
-  position: relative;
-  padding-top: 100%;
-  background: #000;
+  // responsive size with preserved aspect ratio (191.111 x 118)
+  width: 100%;
+  aspect-ratio: 191.111 / 118;
 }
 
 .image {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; // fill card area
+  border: none;
+  border-radius: 0;
 }
 
 .title {
-  padding: $space-3 $space-4;
-  font-size: 14px;
-  color: $color-text;
+  margin-top: 10px; // spacing below image
+  color: #fff;
+  font-family:
+    Roboto,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
 }
