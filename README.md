@@ -1,52 +1,85 @@
-# Getting Started with Create React App
+## Betting Soft Test — game catalog
 
-This project is configured for the betting-soft test task. Key scripts:
+Small React app to browse a game catalog: search, type filter, infinite scroll, and clean cover cards.
 
-- yarn start: start dev server
-- yarn lint: run ESLint
-- yarn format: run Prettier
+### Demo
 
-Pre-commit runs lint-staged.
+- **Production**: [Open demo](https://Matthew3dg.github.io/betting-soft-test/)
 
-## Available Scripts
+### Features
 
-In the project directory, you can run:
+- **Search**: by game name and ID (triggered by the “SEARCH” button).
+- **Filter by type**: dropdown with available game types.
+- **Infinite scroll**: loads cards in batches while scrolling.
+- **Game cards**: CDN cover images and game title; lazy‑loaded images.
+- **Loading states**: loading indicator and empty state.
 
-### `yarn start`
+### Tech stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React 19**, **TypeScript**
+- **Redux Toolkit Query** for data fetching
+- **Sass Modules** for styling
+- **Create React App** (react-scripts 5)
+- **ESLint + Prettier**, husky and lint-staged
+- **GitHub Actions + Pages** for auto‑deploy
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Quick start
 
-### `yarn test`
+1. Install dependencies:
+   ```bash
+   yarn install
+   ```
+2. Start the dev server:
+   ```bash
+   yarn start
+   ```
+   The app opens at `http://localhost:3000`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Scripts
 
-### `yarn build`
+- **Dev server**: `yarn start`
+- **Production build**: `yarn build`
+- **Tests**: `yarn test`
+- **Lint**: `yarn lint`
+- **Format**: `yarn format`
+- **Manual deploy to gh-pages**: `yarn deploy`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### API and environment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- In development, requests to `'/api'` are proxied to `https://belparyaj.com` via `src/setupProxy.js`.
+- In production, the API base URL comes from `REACT_APP_API_BASE_URL` (defaults to `https://belparyaj.com`).
+- The images base URL comes from `REACT_APP_IMAGE_BASE_URL` (defaults to `https://bsw-dk1.pragmaticplay.net`).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Sample `.env`:
 
-### `yarn eject`
+```env
+REACT_APP_API_BASE_URL=https://belparyaj.com
+REACT_APP_IMAGE_BASE_URL=https://bsw-dk1.pragmaticplay.net
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Project structure (short)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```text
+src/
+  pages/home/ui/HomePage.tsx        # Catalog screen: search/filter, infinite scroll
+  entities/game/api/gameApi.ts      # Fetch game list (RTK Query)
+  entities/game/ui/GameCard/        # Game card
+  widgets/header/                   # Header with search and types
+  widgets/search-panel/             # Input field + SEARCH button
+  widgets/game-type-panel/          # Game type select
+  widgets/provider-row/             # Provider row
+  shared/ui/                        # Basic UI components (Button, Select, TextInput, ...)
+  shared/api/env.ts                 # API/image URLs config
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Deployment
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **Auto‑deploy**: on push to `main`, GitHub Actions builds and publishes to GitHub Pages (see `/.github/workflows/deploy.yml`).
+- **SPA fallback**: during `postbuild`, `build/index.html` is copied to `build/404.html` for correct routing on Pages.
+- **Manual deploy**: `yarn deploy` (uses `gh-pages`, publishes `build`).
 
-## Learn More
+### Requirements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Node.js 20+ (same as CI), Yarn 1.x
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you notice an issue or want to suggest an improvement — feel free to open an issue/PR. Enjoy!
