@@ -1,0 +1,35 @@
+.wrap {
+  display: flex;
+  height: 40px;
+  padding: 10px 20px 10px 15px;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ba8e47;
+  border-radius: 0;
+}
+
+.icon {
+  display: inline-flex;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family:
+    Roboto,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1 1 auto;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+  }
+}

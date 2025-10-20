@@ -1,0 +1,28 @@
+.row {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.iconBox {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 0 4.367px 0 5px;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  color: #fff;
+  font-family:
+    Roboto,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+}

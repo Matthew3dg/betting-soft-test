@@ -1,0 +1,55 @@
+@use '../../shared/styles/variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.gameTypePanel {
+  display: flex;
+  padding: 20px 90px 20px 20px;
+  align-items: center;
+  gap: 30px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #1f1f1f 0%, #1f1f1f 100%), #1c1c1c;
+  flex: 1 0 0;
+  width: 71.35%;
+}
+
+.label {
+  color: #fff;
+  font-family:
+    Roboto,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: capitalize;
+}
+
+.searchPanel {
+  display: flex;
+  flex: 0 0 auto;
+  padding: 9px 20px;
+  align-items: flex-start;
+  gap: 30px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #1f1f1f 0%, #1f1f1f 100%), #1c1c1c;
+}
+
+.searchCol {
+  width: 100%;
+}
+.searchRow {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 8px;
+  flex-wrap: nowrap;
+}

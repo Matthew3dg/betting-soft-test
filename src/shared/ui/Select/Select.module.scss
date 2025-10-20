@@ -1,0 +1,25 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.native {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #1f1f1f;
+  border: 1px solid #ba8e47;
+  border-radius: 0;
+  color: #fff;
+  width: 140px;
+  height: 40px;
+  padding: 10px 10px 10px 20px;
+}
+
+.icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

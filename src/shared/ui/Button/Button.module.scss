@@ -1,0 +1,15 @@
+.root {
+  display: inline-flex;
+  height: 40px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0;
+  background: #f0da7d;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
