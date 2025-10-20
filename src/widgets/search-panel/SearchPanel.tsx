@@ -17,7 +17,7 @@ export const SearchPanel: React.FC<Props> = ({ search, onChangeSearch, onSearch 
         <div className={styles.label}>Search</div>
         <div className={styles.searchRow}>
           <TextInput
-            withIconSrc="/icons/search.svg"
+            withIconSrc={`${process.env.PUBLIC_URL}/icons/search.svg`}
             placeholder="Search"
             value={search}
             onChange={(e) => onChangeSearch(e.target.value)}

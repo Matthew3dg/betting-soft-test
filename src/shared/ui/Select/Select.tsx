@@ -14,7 +14,7 @@ interface Props extends React.SelectHTMLAttributes<HTMLSelectElement> {
 
 export const Select: React.FC<Props> = ({
   options,
-  iconSrc = '/icons/Arrow.svg',
+  iconSrc = `${process.env.PUBLIC_URL}/icons/Arrow.svg`,
   className,
   ...rest
 }) => {
